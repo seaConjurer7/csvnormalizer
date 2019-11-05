@@ -28,10 +28,14 @@ def normalize_data():
 			# Normalizing array with sklearn
 			processed_data = data.minmax_scale(watts, feature_range=(0, 1), axis=0, copy=True) 
 
-			# Appending data to normalized data file
-			dates.to_csv(normdata, header=None, index=False)
-			processed_data.to_csv(normdata, header=None, index=False)
+			# Changing columns to rows
+			rows = zip(dates, processed_data)
 
-# Calling functions
+			# Writing data to normalized_data file
+			writer = csv.writer(normdata)
+			for row in rows:
+				writer.writerow(row)
+
+# Function commented as they have already been run
 # isolate_data()
-normalize_data()
+# normalize_data()
