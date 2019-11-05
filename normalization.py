@@ -23,15 +23,14 @@ def normalize_data():
 			colnames = ['Date', 'Watts']
 			file = pandas.read_csv(isolated_data, names=colnames)
 			watts = file.Watts
+			dates = file.Date
 			
 			# Normalizing array with sklearn
-			processed_data = data.minmax_scale(watts, feature_range=(0, 1), axis=0, copy=True)
-		
-			# Testing scaled data
-			print(processed_data) 
+			processed_data = data.minmax_scale(watts, feature_range=(0, 1), axis=0, copy=True) 
 
 			# Appending data to normalized data file
-			# processed_data.to_csv(normdata, header=None, index=False)
+			dates.to_csv(normdata, header=None, index=False)
+			processed_data.to_csv(normdata, header=None, index=False)
 
 # Calling functions
 # isolate_data()
