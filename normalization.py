@@ -25,14 +25,14 @@ def normalize_data():
 			watts = file.Watts
 			
 			# Normalizing array with sklearn
-			processed_data = data.minmax_scale(watts)
+			processed_data = data.minmax_scale(watts, feature_range=(0, 1), axis=0, copy=True)
 		
 			# Testing scaled data
-			print(processed_data)
+			print(processed_data) 
 
 			# Appending data to normalized data file
 			# processed_data.to_csv(normdata, header=None, index=False)
 
 # Calling functions
 # isolate_data()
-# normalize_data()
+normalize_data()
