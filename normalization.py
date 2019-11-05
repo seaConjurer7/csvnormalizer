@@ -1,7 +1,8 @@
-# A program that normalizes a data set with the given equation
+# A program that normalizes given columns in a csv file
 import csv
 import pandas
-from sklearn.preprocessing import MinMaxScaler
+import numpy 
+from sklearn.preprocessing import data
 
 # Function that takes solar data and inserts the essential data needed to 'isolated_data.csv'
 def isolate_data():
@@ -14,19 +15,24 @@ def isolate_data():
 		data[['Date', 'Watts']].to_csv(isolated_data, header=None, index=False)
 
 # Function that normalizes the data in 'isolated_data.csv'
-# A+(x-a)(B-A)/(b-a)
-# A = Set max range
-# B = Set min range
-# a = Observed max value
-# b = Observed min value
-# x = All other values that are not the max or min
 def normalize_data():
-	# Reading the isolated data to work with
-	colnames = ['Date', 'Watts']
-	data = pandas.read_csv('_data/isolated_data.csv', 'r', names=colnames)
+	with open('_data/normalized_data.csv', 'a') as normdata:
+		# Reading the isolated data to work with
+		with open('_data/isolated_data.csv', 'r') as isolated_data:
+			# Grabbing watts specifically 
+			colnames = ['Date', 'Watts']
+			file = pandas.read_csv(isolated_data, names=colnames)
+			watts = file.Watts
+			
+			# Normalizing array with sklearn
+			processed_data = data.minmax_scale(watts)
+		
+			# Testing scaled data
+			print(processed_data)
 
-	# Sklearn preprocessing MinMaxScaler() to normalize data
-	normalized_data = 
+			# Appending data to normalized data file
+			# processed_data.to_csv(normdata, header=None, index=False)
 
 # Calling functions
 # isolate_data()
+# normalize_data()
