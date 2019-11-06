@@ -1,0 +1,2 @@
+# As of 11/5/2019 
+So far this program simply runs the functions with specific hard coded parameters, just so I could use it for a school assignment. Next steps will be towards making the program more universal. I will be making a CLI where the user will be prompted to input all of their data, column names, select which colummns of data to normalize, and which columns to isolate if need be from a csv file as well. This way multiple CSV files can be passed with relative ease.
