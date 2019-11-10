@@ -9,7 +9,7 @@ def isolate_data():
 	with open('_data/isolated_data.csv', 'a') as isolated_data:
 		# Reading data & initializing column names
 		colnames = ['Date', 'Voltage', 'Watts', 'Integer', '#']
-		data = pandas.read_csv('_data/SolarDump03062019.csv', names=colnames)
+		data = pandas.read_csv('_data/SolarDumpFULLFINAL.csv', names=colnames)
 
 		# Appending data to isolated data file
 		data[['Date', 'Watts']].to_csv(isolated_data, header=None, index=False)
