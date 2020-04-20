@@ -1,4 +1,5 @@
 # A program that normalizes given columns in a csv file
+import tkinter as tk
 import csv
 import pandas
 import numpy 
@@ -36,28 +37,5 @@ def normalize_data():
 			for row in rows:
 				writer.writerow(row)
 
-# CLI 
-choice = input('''
-Please choose from the folowing options to get going:
-
-- Isolate specific columns from a CSV file (1)
-- Normalize data in a specific column (2)
-- Reset the program (3)
-- Quit the program (4)
-
-Type the corresponding number here: ''')
-
-if choice == '1':
-	print('1')
-elif choice == '2':
-	print('2')
-elif choice == '3':
-	print('3')
-elif choice == '4':
-	print('4')
-else:
-	print('darn')
-
-# Function commented as they have already been run
-# isolate_data()
-# normalize_data()
+# GUI
+root = Tk()
